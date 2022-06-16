@@ -32,5 +32,5 @@
         }
     ],
     "manifest": "https://github.com/drplote/fvtt-osric-speed-provider/raw/main/module.json",
-    "download": "https://github.com/drplote/fvtt-osric-speed-provider/archive/refs/tags/release.zip",
+    "download": "https://github.com/drplote/fvtt-osric-speed-provider/archive/refs/tags/release.zip"
 }
