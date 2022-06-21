@@ -1,33 +1,36 @@
 name: Module Builder
 
-on:
+on: 
   push:
     branches:
       - master
 
-jobs:
-  build: 
+jobs: 
+  build:
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      
-      - name: Zip Files
-        working-directory: ./
-        run: zip -r ./module.zip ./*
+    steps:
+    - uses: actions/checkout@v2
 
-      - name: Get Version
+    # Get the version from 'module.json'
+    - name: Get Version
       shell: bash
       id: get-version
       run: echo "::set-output name=version::$(node ./.github/workflows/get-version.js)"
 
-      - name: Create Release
-      id: create-release
+      # create a zip file with all files required by the module to add to the release
+    - name: Zip Files
+      working-directory: ./
+      run: zip -r ../module.zip ./*
+
+    # Create a release for this specific version
+    - name: Create Version Release
+      id: create_version_release
       uses: ncipollo/release-action@v1
       with:
-        allowUpdates: true
+        allowUpdates: true # set this to false if you want to prevent updating existing releases
         name: Release ${{ steps.get-version.outputs.version }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './module.zip, ./module.json'
+        artifacts: './module.json,./module.zip'
         tag: ${{ steps.get-version.outputs.version }}
