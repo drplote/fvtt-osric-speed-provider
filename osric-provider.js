@@ -6,6 +6,16 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
           id: "round",
           default: 0x00FF00,
           name: "osric-speed-provider.round",
+        },
+        {
+          id: "odd-step",
+          default: 0x00FF00,
+          name: "osric-speed-provider.odd-step",
+        },
+        {
+          id: "even-step",
+          default: 0xFFFC33,
+          name: "osric-speed-provider.even-step",
         }
       ];
     }
@@ -33,7 +43,14 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 
       let movementSpeed = this.getMovementSpeed(token);
 
-      const ranges = [{range: movementSpeed, color: "round"}]; 
+      let moveStep = movementSpeed / 10;
+
+      let ranges = [];
+      for (let i = 1; i <= 10; i++){
+        ranges.push({range: moveStep * i, color: (i % 2 == 0) ? "even-step" : "odd-step"});
+      }
+
+      /*const ranges = [{range: movementSpeed, color: "round"}];*/
       return ranges;
     }
 
