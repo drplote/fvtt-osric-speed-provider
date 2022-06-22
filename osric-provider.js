@@ -1,3 +1,14 @@
+Hooks.on('init', () => {
+  game.settings.register("osric-speed-provider", "useSegmentBreakdown", {
+    name: "Change colors every 1/10th of movement?",
+    hint: "Enable this to make it easier to move one segment at a time.",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean
+  });
+});
+
 Hooks.once("dragRuler.ready", (SpeedProvider) => {
   class OsricSpeedProvider extends SpeedProvider {
     get colors() {
@@ -5,17 +16,17 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
         {
           id: "round",
           default: 0x00FF00,
-          name: "osric-speed-provider.round",
+          name: "osric-speed-provider.round"
         },
         {
           id: "odd-step",
           default: 0x00FF00,
-          name: "osric-speed-provider.odd-step",
+          name: "osric-speed-provider.odd-step"
         },
         {
           id: "even-step",
           default: 0xFFFC33,
-          name: "osric-speed-provider.even-step",
+          name: "osric-speed-provider.even-step"
         }
       ];
     }
@@ -43,14 +54,21 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
 
       let movementSpeed = this.getMovementSpeed(token);
 
-      let moveStep = movementSpeed / 10;
+      let isSegmentBasedMovement = game.settings.get("osric-speed-provider", "useSegmentBreakdown");
 
       let ranges = [];
-      for (let i = 1; i <= 10; i++){
-        ranges.push({range: moveStep * i, color: (i % 2 == 0) ? "even-step" : "odd-step"});
+      if (isSegmentBasedMovement === true){
+
+        let moveStep = movementSpeed / 10;
+
+        for (let i = 1; i <= 10; i++){
+          ranges.push({range: moveStep * i, color: (i % 2 === 0) ? "even-step" : "odd-step"});
+        }
+      }
+      else {
+        ranges = [{range: movementSpeed, color: "round"}];
       }
 
-      /*const ranges = [{range: movementSpeed, color: "round"}];*/
       return ranges;
     }
 
