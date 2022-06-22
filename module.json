@@ -12,7 +12,7 @@
     "url": "https://github.com/drplote/fvtt-osric-speed-provider",
     "readme": "https://github.com/drplote/fvtt-osric-speed-provider/raw/main/README.md",
     "type": "module",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "minimumCoreVersion": "9.238",
     "compatibleCoreVersion": "9",
     "system": "osric",
@@ -32,5 +32,5 @@
         }
     ],
     "manifest": "https://github.com/drplote/fvtt-osric-speed-provider/releases/latest/download/module.json",
-    "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.0.2/module.zip"
+    "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.0.3/module.zip"
 }

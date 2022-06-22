@@ -40,10 +40,22 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
       return actorData.data.attributes.movement.value;
     }
 
-    getMovementSpeed(token){
-      let movement = parseInt(this.getMovementRawValue(token));
+    parseRawMovementValue(rawMove){
+      if (rawMove){
+        if (Number.isFinite(rawMove)){
+          return rawMove;
+        }
 
-      if (isNaN(movement)){
+        let regex = new RegExp("^[^\\d]*(\\d+)");
+        return rawMove.match(regex)?.[1];
+      }
+      return null;
+    }
+
+    getMovementSpeed(token){
+      let movement = this.parseRawMovementValue(this.getMovementRawValue(token));
+
+      if (movement == null){
         movement = 120;
       }
       return movement;
