@@ -1,6 +1,8 @@
 {
   "osric-speed-provider": {
-    "segment": "Segment Move",
-    "round": "Full Round Move"
+    "odd-segment": "Odd Segment Move",
+    "even-segment": "Even Segment Move",
+    "full-move": "Full Move",
+    "half-move": "Half Move"
   }
 }

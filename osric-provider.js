@@ -14,19 +14,24 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
     get colors() {
       return [
         {
-          id: "round",
+          id: "full-move",
+          default: 0xFFFC33,
+          name: "osric-speed-provider.full-move"
+        },
+        {
+          id: "half-move",
           default: 0x00FF00,
-          name: "osric-speed-provider.round"
+          name: "osric-speed-provider.half-move"
         },
         {
           id: "odd-step",
           default: 0x00FF00,
-          name: "osric-speed-provider.odd-step"
+          name: "osric-speed-provider.odd-segment"
         },
         {
           id: "even-step",
           default: 0xFFFC33,
-          name: "osric-speed-provider.even-step"
+          name: "osric-speed-provider.even-segment"
         }
       ];
     }
@@ -78,7 +83,8 @@ Hooks.once("dragRuler.ready", (SpeedProvider) => {
         }
       }
       else {
-        ranges = [{range: movementSpeed, color: "round"}];
+        let halfMoveSpeed = movementSpeed / 2;
+        ranges = [{range: halfMoveSpeed, color: "half-move"}, {range: movementSpeed, color: "full-move"}];
       }
 
       return ranges;
