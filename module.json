@@ -1,36 +1,48 @@
 {
-    "name": "osric-speed-provider",
-    "title": "OSRIC Speed Provider",
-    "description": "Provides Drag Ruler speed settings for OSRIC",
-    "author": "Sterno",
-    "authors": [
-        {
-          "name": "Sterno",
-          "discord": "Sterno#8208"
-        }
+  "title": "OSRIC Speed Provider",
+  "description": "Provides Drag Ruler speed settings for OSRIC",
+  "authors": [
+    {
+      "name": "Sterno",
+      "discord": "Sterno#8208",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/drplote/fvtt-osric-speed-provider",
+  "readme": "https://github.com/drplote/fvtt-osric-speed-provider/raw/main/README.md",
+  "version": "1.1.0",
+  "esmodules": [
+    "osric-provider.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "manifest": "https://github.com/drplote/fvtt-osric-speed-provider/releases/latest/download/module.json",
+  "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.1.0/module.zip",
+  "id": "osric-speed-provider",
+  "relationships": {
+    "requires": [
+      {
+        "id": "drag-ruler",
+        "type": "module",
+        "compatibility": {}
+      }
     ],
-    "url": "https://github.com/drplote/fvtt-osric-speed-provider",
-    "readme": "https://github.com/drplote/fvtt-osric-speed-provider/raw/main/README.md",
-    "type": "module",
-    "version": "1.1.0",
-    "minimumCoreVersion": "9.238",
-    "compatibleCoreVersion": "9",
-    "system": "osric",
-    "dependencies": [
-        {
-            "name": "drag-ruler"
-        }
-    ],
-    "esmodules": [
-        "./osric-provider.js"
-    ],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
-        }
-    ],
-    "manifest": "https://github.com/drplote/fvtt-osric-speed-provider/releases/latest/download/module.json",
-    "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.1.0/module.zip"
+    "systems": [
+      {
+        "id": "osric",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "compatibility": {
+    "minimum": "9.238",
+    "verified": "9"
+  }
 }
