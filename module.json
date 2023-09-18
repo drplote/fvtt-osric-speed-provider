@@ -10,7 +10,7 @@
   ],
   "url": "https://github.com/drplote/fvtt-osric-speed-provider",
   "readme": "https://github.com/drplote/fvtt-osric-speed-provider/raw/main/README.md",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "esmodules": [
     "osric-provider.js"
   ],
@@ -23,7 +23,7 @@
     }
   ],
   "manifest": "https://github.com/drplote/fvtt-osric-speed-provider/releases/latest/download/module.json",
-  "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.1.0/module.zip",
+  "download": "https://github.com/drplote/fvtt-osric-speed-provider/releases/download/1.2.0/module.zip",
   "id": "osric-speed-provider",
   "relationships": {
     "requires": [
